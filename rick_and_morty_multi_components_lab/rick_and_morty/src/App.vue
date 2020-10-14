@@ -3,7 +3,7 @@
     <h1>Rick and Morty Characters</h1>
     <section>
       <label for="character-selected">Enter a character name:</label>
-      <input type="text" autocomplete="character-selected"><br>
+      <input type="text" autocomplete="on"><br>
       <p>or</p>
       <label for="character-selected">Choose a character:</label>
       <select id="character-selected" v-model="selectedCharacter">
