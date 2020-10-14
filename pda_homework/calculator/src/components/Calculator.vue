@@ -42,9 +42,10 @@ export default {
     operatorClick: function (operator) {
      eventBus.$emit('operator-clicked', operator)
     }
-  },
+  }
 };
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -78,7 +79,7 @@ export default {
 }
 
 #hidden {
-  visibility: hidden;
+  visibility: visible;
 }
 
 
