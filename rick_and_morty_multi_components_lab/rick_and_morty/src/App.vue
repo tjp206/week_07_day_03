@@ -1,8 +1,17 @@
 <template>
-  <div>
+  <div id="app">
     <h1>Rick and Morty Characters</h1>
     <section>
-      <character-list :characters="characters"></character-list>
+      <label for="character-selected">Enter a character name:</label>
+      <input type="text" autocomplete="character-selected"><br>
+      <p>or</p>
+      <label for="character-selected">Choose a character:</label>
+      <select id="character-selected" v-model="selectedCharacter">
+        <option disabled value="">Choose a character</option>
+        <option v-for="(character, index) in characters" :value="character" :key='index'>{{character.name}}</option>
+      </select>
+      <!-- <character-list :characters="characters"></character-list> -->
+
       <character-detail :character="selectedCharacter"></character-detail>
 
     </section>
@@ -21,7 +30,7 @@ export default {
   data(){
     return {
       characters: [],
-      selectedCharacter: null
+      selectedCharacter: null,
     };
   },
   mounted(){
@@ -37,17 +46,29 @@ export default {
     "character-list": CharacterList,
     "character-detail": CharacterDetail
   },
+  computed: {
+  filterCharacters: function(){
+    return this.characters.filter((character) => {
+      return this.selectedCharacter.results.includes() 
+    })
+  }
+  }
 
 }
 </script>
 
 <style>
-#app {
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: black;
+  color:whitesmoke;
+  margin: 10px;
+  border-radius: 5%;
 }
 </style>

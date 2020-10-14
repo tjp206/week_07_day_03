@@ -3,6 +3,7 @@
     <h2>{{character.name}}</h2>
     <p>Status: {{character.status}} </p>
     <p>Species: {{character.species}} </p>
+    <p> <img :src="character.image"/> </p>
 </div>
   
 </template>
