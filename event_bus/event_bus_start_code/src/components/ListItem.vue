@@ -1,11 +1,18 @@
 <template lang="html">
-  <li>{{munro.name}}</li>
+  <li v-on:click="handleClick">{{munro.name}}</li>
 </template>
 
 <script>
+import { eventBus } from '../main.js'
+
 export default {
   name: 'list-item',
-  props: ['munro']
+  props: ['munro'], 
+  methods: {
+    handleClick() {
+      eventBus.$emit('munro-selected', this.munro)
+    },
+  },
 }
 </script>
 
