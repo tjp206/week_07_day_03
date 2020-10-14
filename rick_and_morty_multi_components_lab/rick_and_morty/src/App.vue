@@ -29,7 +29,9 @@ export default {
     .then(res => res.json())
     .then(characters => this.characters = characters.results)
 
-// eventBus.$on("")
+    eventBus.$on("character-selected", (character) => {
+      this.selectedCharacter = character
+    })
   },
   components: {
     "character-list": CharacterList,
